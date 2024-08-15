@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="626.0" prefWidth="964.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controle.PrincipalController">
+   <children>
+      <ImageView fitHeight="636.0" fitWidth="985.0" layoutX="-11.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-10.0" AnchorPane.leftAnchor="-11.0" AnchorPane.rightAnchor="-9.774169921875" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@imagens/redes1telanova.png" />
+         </image>
+         <viewport>
+            <Rectangle2D />
+         </viewport>
+      </ImageView>
+      <TextArea fx:id="receptorText5" layoutX="793.0" layoutY="171.0" prefHeight="275.0" prefWidth="126.0" style="-fx-background-color: white;" />
+      <ScrollPane layoutX="19.0" layoutY="535.0" prefHeight="88.0" prefWidth="682.0" style="-fx-background-color: #6e9eae;" vbarPolicy="NEVER">
+         <content>
+            <HBox fx:id="boxGrafico" prefHeight="70.0" prefWidth="682.0" style="-fx-background-color: #6e9eae;" />
+         </content>
+      </ScrollPane>
+      <Group layoutX="383.0" layoutY="408.0">
+         <children>
+            <ImageView fx:id="enviarPhoto1" fitHeight="40.0" fitWidth="55.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@imagens/enviaazul.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Group>
+      <Group layoutX="9.0" layoutY="357.0" />
+      <Slider fx:id="sliderErro" layoutX="442.0" layoutY="498.0" prefHeight="25.0" prefWidth="81.0" style="-fx-background-color: #0e353b; -fx-background-radius: 10;" />
+      <Button fx:id="idEnviar" layoutX="736.0" layoutY="534.0" mnemonicParsing="false" onMouseClicked="#AplicacaoTransmissora" prefHeight="57.0" prefWidth="201.0" style="-fx-background-color: #0e353b; -fx-background-radius: 20;" text="Começar" textFill="WHITE">
+         <font>
+            <Font size="33.0" />
+         </font></Button>
+      <TextArea fx:id="receptorText4" layoutX="600.0" layoutY="171.0" prefHeight="275.0" prefWidth="126.0" style="-fx-background-color: white;" />
+      <TextArea fx:id="receptorText3" layoutX="408.0" layoutY="170.0" prefHeight="275.0" prefWidth="126.0" style="-fx-background-color: white;" />
+      <TextArea fx:id="receptorText1" layoutX="20.0" layoutY="170.0" prefHeight="275.0" prefWidth="126.0" style="-fx-background-color: white;" />
+      <TextArea fx:id="receptorText2" layoutX="217.0" layoutY="171.0" prefHeight="275.0" prefWidth="126.0" style="-fx-background-color: white;" />
+      <MenuBar layoutX="11.0" layoutY="1.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="Codificação">
+               <items>
+                  <RadioMenuItem fx:id="menubinario" mnemonicParsing="false" selected="true" text="Binário">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="groupCodifcacao" />
+                     </toggleGroup>
+                  </RadioMenuItem>
+                  <RadioMenuItem fx:id="menuManchester" mnemonicParsing="false" text="Manchester" toggleGroup="$groupCodifcacao" />
+                  <RadioMenuItem fx:id="menuDiferencial" mnemonicParsing="false" text="Manchester diferencial" toggleGroup="$groupCodifcacao" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Enquadramento">
+               <items>
+                  <RadioMenuItem fx:id="menuContagem" mnemonicParsing="false" selected="true" text="Contagem de caracteres">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="groupEnquadramento" />
+                     </toggleGroup>
+                  </RadioMenuItem>
+                  <RadioMenuItem fx:id="menuBytes" mnemonicParsing="false" text="Inserção de bytes" toggleGroup="$groupEnquadramento" />
+                  <RadioMenuItem fx:id="menuBits" mnemonicParsing="false" text="Inserção de bits " toggleGroup="$groupEnquadramento" />
+                  <RadioMenuItem fx:id="menuCamadaFisica" mnemonicParsing="false" text="Violação da camada física" toggleGroup="$groupEnquadramento" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Controle">
+               <items>
+                  <RadioMenuItem fx:id="menuPar" mnemonicParsing="false" selected="true" text="Paridade par">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="groupControle" />
+                     </toggleGroup>
+                  </RadioMenuItem>
+                  <RadioMenuItem fx:id="menuImpar" mnemonicParsing="false" text="Paridade ímpar" toggleGroup="$groupControle" />
+                  <RadioMenuItem fx:id="menuCrc" mnemonicParsing="false" text="CRC" toggleGroup="$groupControle" />
+                  <RadioMenuItem fx:id="menuHamming" mnemonicParsing="false" text="Hamming" toggleGroup="$groupControle" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Meio">
+               <items>
+                  <RadioMenuItem fx:id="menuAloha" mnemonicParsing="false" selected="true" text="Aloha">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="groupMeio" />
+                     </toggleGroup>
+                  </RadioMenuItem>
+                  <RadioMenuItem fx:id="menuSlotted" mnemonicParsing="false" text="Slotted aloha" toggleGroup="$groupMeio" />
+                  <RadioMenuItem fx:id="menuNaoPersit" mnemonicParsing="false" text="CSMA não-persistente" toggleGroup="$groupMeio" />
+                  <RadioMenuItem fx:id="menuPersist" mnemonicParsing="false" text="CSMA persistente" toggleGroup="$groupMeio" />
+                  <RadioMenuItem fx:id="menuPpersist" mnemonicParsing="false" text="CSMA p-persistente" toggleGroup="$groupMeio" />
+                  <RadioMenuItem fx:id="menuCd" mnemonicParsing="false" text="CSMA/CD" toggleGroup="$groupMeio" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <ImageView fx:id="transmitindo2" fitHeight="51.0" fitWidth="143.0" layoutX="224.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imagens/Transmitindo.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="transmitindo1" fitHeight="51.0" fitWidth="143.0" layoutX="27.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imagens/Transmitindo.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="transmitindo3" fitHeight="51.0" fitWidth="143.0" layoutX="418.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imagens/Transmitindo.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="transmitindo4" fitHeight="51.0" fitWidth="143.0" layoutX="610.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imagens/Transmitindo.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="transmitindo5" fitHeight="51.0" fitWidth="143.0" layoutX="801.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imagens/Transmitindo.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="colisao2" fitHeight="51.0" fitWidth="143.0" layoutX="224.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imagens/Colisão!!!.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="colisao1" fitHeight="51.0" fitWidth="143.0" layoutX="27.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imagens/Colisão!!!.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="colisao3" fitHeight="51.0" fitWidth="143.0" layoutX="418.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imagens/Colisão!!!.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="colisao4" fitHeight="51.0" fitWidth="143.0" layoutX="610.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imagens/Colisão!!!.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="colisao5" fitHeight="51.0" fitWidth="143.0" layoutX="801.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imagens/Colisão!!!.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
